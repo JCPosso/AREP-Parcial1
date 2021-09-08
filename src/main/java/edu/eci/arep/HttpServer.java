@@ -3,6 +3,7 @@ package edu.eci.arep;
 import java.net.*;
 import java.io.*;
 import java.util.HashMap;
+
 public class HttpServer {
     public HttpServer(){}
 
@@ -52,7 +53,7 @@ public class HttpServer {
                 ready =true;
             } else {
                 String[] line = inputLine.split( ":" );
-                if (line.length>1)
+                if (line.length>1 )
                     request.put( line[0], line[1] );
             }
             if (!in.ready()) {
@@ -70,56 +71,50 @@ public class HttpServer {
      * @throws IOException Error de escritura del recurso
      */
     public  void getResource(HashMap<String,String> response, OutputStream ClientSocket) throws IOException {
-        String outputLine = "";
-        if (response.get("rq")!= null) {
+        String[] requestLine = response.get( "rq" ).split( " " );
+        if(!requestLine[1].contains(".")) {
             PrintWriter printWriter = new PrintWriter( ClientSocket, true );
-            String[] lineRequest = response.get( "rq" ).split( " " );
-            String path = lineRequest[1];
-            if ( path.equals( "/" ) ) path = "/index.html";
-            byte pathByte[] = findResource( path );
-            if ( pathByte != null ) {
-                outputLine = generateHeader( path );
-                printWriter.println( outputLine );
-                ClientSocket.write( pathByte );
+            String city = requestLine[1];
+            String path = city;
+            String[] route = path.split( "\\/" );
+            String city2 = route[route.length - 1];
+            System.out.println( city2 );
+            String answer = "";
+            URL url = new URL( "https://api.openweathermap.org/data/2.5/weather?q=" + city2 + "&appid=602d8e6663a4731d5a708462db8af16b" );
+            getResponse( url, printWriter );
+            ClientSocket.close();
+        }
+
+    }
+    private void getResponse(URL url, PrintWriter clientsocket) {
+        HttpURLConnection connection = null;
+        StringBuilder answer = new StringBuilder();
+        try {
+            connection = (HttpURLConnection) url.openConnection();
+            connection.setRequestMethod( "GET" );
+            BufferedReader bufferedReader = new BufferedReader( new InputStreamReader( connection.getInputStream() ) );
+            String line;
+            while ((line = bufferedReader.readLine()) != null) {
+                    answer.append( line );
             }
+            bufferedReader.close();
+        } catch (IOException ioException) {
+            ioException.printStackTrace();
         }
-        ClientSocket.close();
-    }
-
-    /**
-     * Metodo que obtiene un recurso almacenado.
-     * @param path nombre ruta del recurso
-     * @return arreglo de bytes del recurso para el outputStream
-     * @throws IOException error de lectura del archivo
-     */
-    private byte[] findResource(String path) throws IOException {
-        String dir = "src/main/resources/html_public" +  path;
-        File resource= new File(dir);
-        byte content[] = new byte[(int)resource.length()];
-        if (resource.exists() && resource.isFile() ){
-            FileInputStream fileStream = new FileInputStream(resource);
-            fileStream.read(content);
-            fileStream.close();
-        }else{
-            content = null;
+        if ( answer != null ) {
+            String content = "HTTP/1.1 200 OK\r\n"
+                    + "Content-Type: text/html\r\n" + "\r\n"
+                    + "<!DOCTYPE html>\n"
+                    + "<html>\n" + "<head>\n" + "<meta charset=\"UTF-8\">\n"
+                    + "<title></title>\n"
+                    + "</head>\n"
+                    + "<body>\n"
+                    + "<p>" + answer + "</p>"
+                    + "</body>\n"
+                    + "</html>\n";
+            clientsocket.println( content );
+        } else {
+            throw new NullPointerException();
         }
-        return content;
-    }
-
-    /**
-     * Genera encabezado segun el tipo de recurso solicitado
-     * @param path ruta del recurso
-     * @return Encabezado string http
-     */
-    private String generateHeader(String path) {
-        String header = "";
-        String[] list = path.split("\\.");
-        String type = list[list.length-1];
-        if( type.equals( "jpg" ) || type.equals( "png" ) ){
-            header += "HTTP/1.1 200 OK\r\n Content-Type: image/" + type +"\r\n";
-        }else if (type.equals( "html" ) || type.equals( "js" ) || type.equals( "css" )){
-            header += "HTTP/1.1 200 OK\r\n Content-Type: text/" + type +"\r\n" + "\r\n";
-        }
-        return header;
     }
 }
