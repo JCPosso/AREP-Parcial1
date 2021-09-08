@@ -72,8 +72,8 @@ public class HttpServer {
      */
     public  void getResource(HashMap<String,String> response, OutputStream ClientSocket) throws IOException {
         String[] requestLine = response.get( "rq" ).split( " " );
-        if(!requestLine[1].contains(".")) {
-            PrintWriter printWriter = new PrintWriter( ClientSocket, true );
+        PrintWriter printWriter = new PrintWriter( ClientSocket, true );
+        if(requestLine[1].contains("/clima")) {
             String city = requestLine[1];
             String path = city;
             String[] route = path.split( "\\/" );
@@ -83,8 +83,29 @@ public class HttpServer {
             URL url = new URL( "https://api.openweathermap.org/data/2.5/weather?q=" + city2 + "&appid=602d8e6663a4731d5a708462db8af16b" );
             getResponse( url, printWriter );
             ClientSocket.close();
+        }else if (requestLine[1].contains("/consulta?lugar=")){
+            String urlpath = requestLine[1].replace("/consulta?lugar=","");
+            String newUrl = "https://api.openweathermap.org/data/2.5/weather?q="+urlpath+"602d8e6663a4731d5a708462db8af16b";
+            String newJSON= BufferJson(newUrl);
+            System.out.println(newJSON);
+            printWriter.println(newJSON);
         }
+        printWriter.close();
 
+    }
+    private String BufferJson(String newUrl) throws IOException {
+        String inputLine = null;
+        StringBuffer JSON = new StringBuffer();
+        URL siteURL = new URL(newUrl);
+        URLConnection urlConnection = siteURL.openConnection();
+        try (BufferedReader reader = new BufferedReader(new InputStreamReader(urlConnection.getInputStream()))) {
+            while ((inputLine = reader.readLine()) != null) {
+                JSON.append(inputLine);
+            }
+        } catch (IOException x) {
+            System.err.println(x);
+        }
+        return JSON.toString();
     }
     private void getResponse(URL url, PrintWriter clientsocket) {
         HttpURLConnection connection = null;
@@ -102,16 +123,26 @@ public class HttpServer {
             ioException.printStackTrace();
         }
         if ( answer != null ) {
-            String content = "HTTP/1.1 200 OK\r\n"
-                    + "Content-Type: text/html\r\n" + "\r\n"
-                    + "<!DOCTYPE html>\n"
-                    + "<html>\n" + "<head>\n" + "<meta charset=\"UTF-8\">\n"
-                    + "<title></title>\n"
-                    + "</head>\n"
-                    + "<body>\n"
-                    + "<p>" + answer + "</p>"
-                    + "</body>\n"
-                    + "</html>\n";
+            String content =
+                    "HTTP/1.1 200 OK\r\n"+
+                    "<head>\n" +
+                    "<meta charset=\"utf-8\">\n" +
+                    "<link rel=\"stylesheet\" href=\"https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css\" integrity=\"sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO\" crossorigin=\"anonymous\">\n" +
+                    "<script src=\"https://code.jquery.com/jquery-3.3.1.slim.min.js\" integrity=\"sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo\" crossorigin=\"anonymous\"></script>\n" +
+                    "<script src=\"https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js\" integrity=\"sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49\" crossorigin=\"anonymous\"></script>\n" +
+                    "<script src=\"https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js\" integrity=\"sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy\" crossorigin=\"anonymous\"></script>\n" +
+                    "<title>Clima</title>\n" +
+                    "</head>\n" +
+                    "<body>\n" +
+                    "<script>\n" +
+                    "function generar(){\n" +
+                    "json = window.open(\"consulta\"+\"?lugar=\"+document.getElementById(\"city\").value);}" +
+                    "</script>\n" +
+                    " <br><br><br>\n" +
+                    "Ciudad: <input type=\"city\"id=\"city\"/><br><br>\n" +
+                    "<button onclick=\"generar()\" >generar</button>\n" +
+                    "</body>\n" +
+                    "</html>\n";
             clientsocket.println( content );
         } else {
             throw new NullPointerException();
