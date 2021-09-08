@@ -85,15 +85,14 @@ public class HttpServer {
             ClientSocket.close();
         }else if (requestLine[1].contains("/consulta?lugar=")){
             String urlpath = requestLine[1].replace("/consulta?lugar=","");
-            String newUrl = "https://api.openweathermap.org/data/2.5/weather?q="+urlpath+"602d8e6663a4731d5a708462db8af16b";
-            String newJSON= BufferJson(newUrl);
-            System.out.println(newJSON);
-            printWriter.println(newJSON);
+            String newUrl = "https://api.openweathermap.org/data/2.5/weather?q="+urlpath+"&appid=602d8e6663a4731d5a708462db8af16b";
+            BufferJson(newUrl,printWriter);
+            ClientSocket.close();
         }
         printWriter.close();
 
     }
-    private String BufferJson(String newUrl) throws IOException {
+    private void BufferJson(String newUrl, PrintWriter printWriter) throws IOException {
         String inputLine = null;
         StringBuffer JSON = new StringBuffer();
         URL siteURL = new URL(newUrl);
@@ -105,12 +104,14 @@ public class HttpServer {
         } catch (IOException x) {
             System.err.println(x);
         }
-        return JSON.toString();
+        System.out.println(JSON);
+        printWriter.println( JSON );
     }
     private void getResponse(PrintWriter clientsocket) {
         String content =
                     "HTTP/1.1 200 OK\r\n"+
-                    "<head>\n" +
+                            "Content-Type: text/html\r\n" + "\r\n"+
+                        "<head>\n" +
                     "<meta charset=\"utf-8\">\n" +
                     "<link rel=\"stylesheet\" href=\"https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css\" integrity=\"sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO\" crossorigin=\"anonymous\">\n" +
                     "<script src=\"https://code.jquery.com/jquery-3.3.1.slim.min.js\" integrity=\"sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo\" crossorigin=\"anonymous\"></script>\n" +
@@ -128,7 +129,6 @@ public class HttpServer {
                     "<button onclick=\"generar()\" >generar</button>\n" +
                     "</body>\n" +
                     "</html>\n";
-            clientsocket.println( content );
-        }
+        clientsocket.println( content );
     }
 }
