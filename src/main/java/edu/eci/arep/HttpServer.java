@@ -81,7 +81,7 @@ public class HttpServer {
             System.out.println( city2 );
             String answer = "";
             URL url = new URL( "https://api.openweathermap.org/data/2.5/weather?q=" + city2 + "&appid=602d8e6663a4731d5a708462db8af16b" );
-            getResponse( url, printWriter );
+            getResponse(printWriter);
             ClientSocket.close();
         }else if (requestLine[1].contains("/consulta?lugar=")){
             String urlpath = requestLine[1].replace("/consulta?lugar=","");
@@ -107,23 +107,8 @@ public class HttpServer {
         }
         return JSON.toString();
     }
-    private void getResponse(URL url, PrintWriter clientsocket) {
-        HttpURLConnection connection = null;
-        StringBuilder answer = new StringBuilder();
-        try {
-            connection = (HttpURLConnection) url.openConnection();
-            connection.setRequestMethod( "GET" );
-            BufferedReader bufferedReader = new BufferedReader( new InputStreamReader( connection.getInputStream() ) );
-            String line;
-            while ((line = bufferedReader.readLine()) != null) {
-                    answer.append( line );
-            }
-            bufferedReader.close();
-        } catch (IOException ioException) {
-            ioException.printStackTrace();
-        }
-        if ( answer != null ) {
-            String content =
+    private void getResponse(PrintWriter clientsocket) {
+        String content =
                     "HTTP/1.1 200 OK\r\n"+
                     "<head>\n" +
                     "<meta charset=\"utf-8\">\n" +
@@ -144,8 +129,6 @@ public class HttpServer {
                     "</body>\n" +
                     "</html>\n";
             clientsocket.println( content );
-        } else {
-            throw new NullPointerException();
         }
     }
 }

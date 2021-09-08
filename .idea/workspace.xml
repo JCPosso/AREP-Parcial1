@@ -36,11 +36,6 @@
       <change afterPath="$PROJECT_DIR$/../SquareClient/src/main/resources/html_public/index.html" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../SquareClient/src/main/resources/html_public/index.js" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../SquareClient/src/test/java/org/example/AppTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/eci/arep/HttpServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/eci/arep/HttpServer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/public/index.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/public/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/edu/eci/arep/HttpServer.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/edu/eci/arep/HttpServer.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
