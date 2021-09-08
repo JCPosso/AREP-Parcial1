@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="16880864-396b-4ed9-9380-c6b25c1ad851" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../APRE-LAB2-pruebas/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../APRE-LAB2-pruebas/.idea/codeStyles/Project.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../APRE-LAB2-pruebas/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../APRE-LAB2-pruebas/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../APRE-LAB2-pruebas/.idea/jarRepositories.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../APRE-LAB2-pruebas/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../APRE-LAB2-pruebas/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../APRE-LAB2-pruebas/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../APRE-LAB2-pruebas/src/main/java/SqueareClient.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/edu/eci/arep/App.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/edu/eci/arep/HttpServer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/edu/eci/arep/AppTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/test-classes/edu/eci/arep/AppTest.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ARSW-Laboratorio-1" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ARSW-Laboratorio-4/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ARSW-Laboratorio-4/.idea/codeStyles/Project.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ARSW-Laboratorio-4/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ARSW-Laboratorio-4/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ARSW-Laboratorio-4/.idea/jarRepositories.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ARSW-Laboratorio-4/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ARSW-Laboratorio-4/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ARSW-Laboratorio-4/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SquareClient/.idea/codeStyles/Project.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SquareClient/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SquareClient/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SquareClient/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SquareClient/.idea/jarRepositories.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SquareClient/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SquareClient/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SquareClient/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SquareClient/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SquareClient/src/main/java/org/example/HttpServer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SquareClient/src/main/resources/html_public/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SquareClient/src/main/resources/html_public/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SquareClient/src/test/java/org/example/AppTest.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CodeStyleSettingsInfer">
+    <option name="done" value="true" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="ProjectCodeStyleSettingsMigration">
+    <option name="version" value="1" />
+  </component>
+  <component name="ProjectId" id="1xrxesOKrpPtm6dq9jps180UwPl" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../../../../../Program Files/Java/jdk1.8.0_281/bin/jvisualvm.exe" />
+  </component>
+  <component name="RunManager">
+    <configuration name="App" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="edu.eci.arep.App" />
+      <module name="AREP PARCIAL" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="edu.eci.arep.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.App" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="16880864-396b-4ed9-9380-c6b25c1ad851" name="Default Changelist" comment="" />
+      <created>1631127110369</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1631127110369</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+  </component>
+</project>
